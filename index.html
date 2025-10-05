@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muskan - Developer portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">Muskan's Portfolio</div>
+        <div class="right">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Projects</a></li>
+            <li><a href="/">Services</a></li>
+            <li><a href="/">Contact me</a></li>
+            <li><a href="/">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          Hii, My name is <span class="brown">Muskan</span>
+          <div>and I'm a passionate</div>
+          <div>Frontend Developer</div>
+          <!-- Element to contain animated typing -->
+          <span id="element"></span>
+          <div class="buttons">
+            <button class="btn">Dowload Resume</button>
+          <button class="btn">Visit Github</button>
+          </div>
+        </div>
+
+        <div class="rightSection">
+          <img src="phto.png" alt="dev photo" />
+        </div>
+      </section>
+      <hr />
+      <section class="secondSection">
+        <span class="text-grey">What I have done so far</span>
+        <h1>Work experience</h1>
+        <div class="box">
+          <div class="vertical">
+            <img class="img-top" src="phto.png" alt="dev png" />
+            <div class="verticle-title">HTML Developer</div>
+            <div class="verticle-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quos
+              ullam officia tempora modi id quae provident, quibusdam, magnam
+              ipsam optio vitae consectetur magni quia? Doloremque illo
+              accusantium accusamus pariatur?
+            </div>
+          </div>
+          <div class="vertical">
+            <img class="img-top" src="phto.png" alt="dev png" />
+            <div class="verticle-title">HTML Developer</div>
+            <div class="verticle-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quos
+              ullam officia tempora modi id quae provident, quibusdam, magnam
+              ipsam optio vitae consectetur magni quia? Doloremque illo
+              accusantium accusamus pariatur?
+            </div>
+          </div>
+          <div class="vertical">
+            <img class="img-top" src="phto.png" alt="dev png" />
+            <div class="verticle-title">HTML Developer</div>
+            <div class="verticle-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quos
+              ullam officia tempora modi id quae provident, quibusdam, magnam
+              ipsam optio vitae consectetur magni quia? Doloremque illo
+              accusantium accusamus pariatur?
+            </div>
+          </div>
+          <div class="vertical">
+            <img class="img-top" src="phto.png" alt="dev png" />
+            <div class="verticle-title">HTML Developer</div>
+            <div class="verticle-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quos
+              ullam officia tempora modi id quae provident, quibusdam, magnam
+              ipsam optio vitae consectetur magni quia? Doloremque illo
+              accusantium accusamus pariatur?
+            </div>
+          </div>
+          <div class="vertical">
+            <img class="img-top" src="phto.png" alt="dev png" />
+            <div class="verticle-title">HTML Developer</div>
+            <div class="verticle-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quos
+              ullam officia tempora modi id quae provident, quibusdam, magnam
+              ipsam optio vitae consectetur magni quia? Doloremque illo
+              accusantium accusamus pariatur?
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer">
+        <div class="footer-first"></div>
+        <h3>Muskan's developer portfolio</h3>
+        <div class="footer-second">
+            <ul>
+                <li>home</li>
+                <li>About me</li>
+                <li>Services</li>
+                <li>Contact me</li>
+            </ul>
+        </div>
+        <div class="footer-third">
+              <ul>
+                <li>home</li>
+                <li>About me</li>
+                <li>Services</li>
+                <li>Contact me</li>
+            </ul>
+        </div>
+        <div class="footer-fourth">
+              <ul>
+                <li>home</li>
+                <li>About me</li>
+                <li>Services</li>
+                <li>Contact me</li>
+            </ul>
+        </div>
+      </div>
+      <div class="footer-rights">
+        muskanpatelportfolio.com 
+      </div>
+    </footer>
+
+    <!-- Load library from the CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Setup and start animation! -->
+    <script>
+      var typed = new Typed("#element", {
+        strings: ["HTML", "CSS", "JavaScript", "Bootstrap", "Git, GitHub"],
+        typeSpeed: 50,
+      });
+    </script>
+  </body>
+</html>
