@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muskan Patel | AI Engineer & GenAI Specialist</title>
+    <meta name="description" content="Portfolio of Muskan Patel, AI Engineer specializing in Machine Learning, Deep Learning, NLP, and Generative AI applications.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            accent: '#06b6d4',
+                            glow: '#8b5cf6',
+                            darkBg: '#090d16',
+                            cardBg: 'rgba(17, 24, 39, 0.7)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.4, transform: 'scale(1)' },
+                            '50%': { opacity: 0.8, transform: 'scale(1.05)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#090d16] text-slate-200 font-sans antialiased relative selection:bg-indigo-500 selection:text-white min-h-screen overflow-x-hidden">
+
+    <!-- Interactive AI Canvas Background -->
+    <canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Glowing Background Orbs -->
+    <div class="fixed top-1/4 left-10 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none animate-pulse-glow"></div>
+    <div class="fixed bottom-10 right-10 w-96 h-96 bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#090d16]/80 border-b border-slate-800/80" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400 p-[2px] transition-transform duration-300 group-hover:scale-105">
+                    <div class="w-full h-full bg-[#090d16] rounded-[10px] flex items-center justify-center">
+                        <span class="font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-lg">MP</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-tight text-white group-hover:text-indigo-400 transition-colors">Muskan Patel</span>
+                    <span class="text-xs text-indigo-400 font-mono tracking-wider">AI ENGINEER</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80">
+                <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">About</a>
+                <a href="#skills" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Skills</a>
+                <a href="#projects" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Projects</a>
+                <a href="#education" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Education</a>
+                <a href="#contact" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Contact</a>
+            </nav>
+
+            <!-- Actions & Socials -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://github.com/MuskanPatel0027" target="_blank" rel="noopener noreferrer" class="p-2.5 text-slate-400 hover:text-white hover:bg-slate-800/80 rounded-xl border border-slate-800 transition-all" title="GitHub Profile">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="https://leetcode.com/u/Muskan_Patel_0027/" target="_blank" rel="noopener noreferrer" class="p-2.5 text-slate-400 hover:text-amber-400 hover:bg-slate-800/80 rounded-xl border border-slate-800 transition-all" title="LeetCode Profile">
+                    <i class="fa-solid fa-code text-lg"></i>
+                </a>
+                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-medium text-sm shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02] transition-all">
+                    Let's Talk
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0d1322] border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#about" class="mobile-nav-link block text-base text-slate-300 hover:text-indigo-400">About</a>
+            <a href="#skills" class="mobile-nav-link block text-base text-slate-300 hover:text-indigo-400">Skills</a>
+            <a href="#projects" class="mobile-nav-link block text-base text-slate-300 hover:text-indigo-400">Projects</a>
+            <a href="#education" class="mobile-nav-link block text-base text-slate-300 hover:text-indigo-400">Education</a>
+            <a href="#contact" class="mobile-nav-link block text-base text-slate-300 hover:text-indigo-400">Contact</a>
+            <div class="pt-4 border-t border-slate-800 flex items-center gap-4">
+                <a href="https://github.com/MuskanPatel0027" target="_blank" class="text-slate-400 hover:text-white"><i class="fa-brands fa-github text-xl"></i></a>
+                <a href="https://leetcode.com/u/Muskan_Patel_0027/" target="_blank" class="text-slate-400 hover:text-amber-400"><i class="fa-solid fa-code text-xl"></i></a>
+                <a href="mailto:muskanpatelmp07@gmail.com" class="text-slate-400 hover:text-indigo-400"><i class="fa-solid fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- Hero Section -->
+        <section id="hero" class="pt-36 pb-20 md:pt-44 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center min-h-[90vh]">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Status Pill -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-sm font-mono backdrop-blur-md">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
+                        AI Engineer & GenAI Developer
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+                        Architecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400">Intelligent AI Systems</span> & Multi-Agent Workflows
+                    </h1>
+
+                    <!-- Bio Subtitle -->
+                    <p class="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                        Hello! I'm <strong class="text-slate-200">Muskan Patel</strong>, an AI Engineer based in Bhopal, India. I specialize in building end-to-end Machine Learning, Deep Learning, NLP, and Generative AI applications using Python, LangChain, TensorFlow, and FastAPI.
+                    </p>
+
+                    <!-- Tech Badges Bar -->
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs font-mono text-cyan-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-robot"></i> Multi-Agent Systems
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs font-mono text-indigo-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-microchip"></i> RAG & LLMs
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs font-mono text-purple-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-brain"></i> Deep Learning (BiGRU/LSTM)
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt"></i> FastAPI & Deployment
+                        </span>
+                    </div>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 text-white font-semibold text-base shadow-xl shadow-indigo-600/25 hover:shadow-indigo-500/40 hover:scale-[1.02] transition-all flex items-center gap-2">
+                            Explore Projects <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#contact" class="px-7 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-slate-200 font-semibold text-base transition-all flex items-center gap-2">
+                            <i class="fa-regular fa-paper-plane text-indigo-400"></i> Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Tech Card / Graphic -->
+                   
+            </div>
+        </section>
+
+        <!-- Summary & About Section -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/50">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-xs font-mono font-semibold tracking-widest text-indigo-400 uppercase">Executive Summary</h2>
+                <p class="mt-2 text-3xl font-extrabold text-white">Passionate About Intelligent Automation</p>
+            </div>
+
+            <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900/80 to-slate-950/80 border border-slate-800/80 backdrop-blur-xl relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-8 space-y-4">
+                        <p class="text-slate-300 text-lg leading-relaxed">
+                            AI Engineer with hands-on experience building and deploying Machine Learning, Deep Learning, NLP, and Generative AI applications. Experienced in Python, TensorFlow, LangChain, LLMs, RAG, embeddings, vector databases, and FastAPI.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed">
+                            Built and deployed AI systems including multi-agent research, sentiment analysis, and next-word prediction applications. Dedicated to writing clean, maintainable code and constructing efficient neural architectures that solve real-world problems.
+                        </p>
+                        
+                        <div class="pt-4 flex flex-wrap gap-6 text-sm text-slate-300">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-indigo-400"></i>
+                                <span>Bhopal, MP, India</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-graduation-cap text-indigo-400"></i>
+                                <span>B.Tech Information Technology</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-envelope text-indigo-400"></i>
+                                <a href="mailto:muskanpatelmp07@gmail.com" class="hover:text-indigo-300 transition-colors">muskanpatelmp07@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-4 bg-slate-900/90 rounded-2xl p-6 border border-slate-800 space-y-4">
+                        <h3 class="text-sm font-semibold text-white uppercase tracking-wider font-mono text-indigo-400">Quick Contact & Links</h3>
+                        <div class="space-y-3">
+                            <a href="https://github.com/MuskanPatel0027" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 border border-slate-700/50 transition-all group">
+                                <span class="flex items-center gap-3"><i class="fa-brands fa-github text-lg"></i> GitHub</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-white"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/Muskan_Patel_0027/" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 border border-slate-700/50 transition-all group">
+                                <span class="flex items-center gap-3"><i class="fa-solid fa-code text-lg text-amber-400"></i> LeetCode</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-amber-400"></i>
+                            </a>
+                            <button onclick="copyToClipboard('muskanpatelmp07@gmail.com', 'Email copied to clipboard!')" class="w-full flex items-center justify-between p-3 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 border border-slate-700/50 transition-all">
+                                <span class="flex items-center gap-3"><i class="fa-regular fa-copy text-lg text-cyan-400"></i> Copy Email</span>
+                                <i class="fa-solid fa-check text-xs text-emerald-400 hidden" id="copy-email-check"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/50">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-xs font-mono font-semibold tracking-widest text-indigo-400 uppercase">Technical Expertise</h2>
+                <p class="mt-2 text-3xl font-extrabold text-white">Skills & Technologies</p>
+                <p class="mt-3 text-slate-400">A comprehensive tech stack covering Generative AI, Neural Networks, Data Engineering, and Web APIs.</p>
+            </div>
+
+            <!-- Skills Filter / Category Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Skill Card 1: Generative AI -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Generative AI</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">LLMs</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Prompt Engineering</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Embeddings</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">RAG</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Vector Databases</span>
+                        <span class="px-2.5 py-1 rounded-md bg-indigo-900/40 text-indigo-300 text-xs font-medium border border-indigo-700/40">LangChain</span>
+                        <span class="px-2.5 py-1 rounded-md bg-indigo-900/40 text-indigo-300 text-xs font-medium border border-indigo-700/40">AI Agents</span>
+                        <span class="px-2.5 py-1 rounded-md bg-indigo-900/40 text-indigo-300 text-xs font-medium border border-indigo-700/40">Multi-Agent Systems</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2: ML & Deep Learning -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">ML & Deep Learning</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Regression</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Classification</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Clustering</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">ANN</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">CNN</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">RNN</span>
+                        <span class="px-2.5 py-1 rounded-md bg-cyan-900/40 text-cyan-300 text-xs font-medium border border-cyan-700/40">LSTM</span>
+                        <span class="px-2.5 py-1 rounded-md bg-cyan-900/40 text-cyan-300 text-xs font-medium border border-cyan-700/40">GRU</span>
+                        <span class="px-2.5 py-1 rounded-md bg-cyan-900/40 text-cyan-300 text-xs font-medium border border-cyan-700/40">BiGRU</span>
+                        <span class="px-2.5 py-1 rounded-md bg-cyan-900/40 text-cyan-300 text-xs font-medium border border-cyan-700/40">Transformers</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3: NLP & Sequence Modeling -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-comments text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Natural Language Processing</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Text Preprocessing</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Tokenization</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">TF-IDF</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Word Embeddings</span>
+                        <span class="px-2.5 py-1 rounded-md bg-purple-900/40 text-purple-300 text-xs font-medium border border-purple-700/40">Text Classification</span>
+                        <span class="px-2.5 py-1 rounded-md bg-purple-900/40 text-purple-300 text-xs font-medium border border-purple-700/40">Sentiment Analysis</span>
+                        <span class="px-2.5 py-1 rounded-md bg-purple-900/40 text-purple-300 text-xs font-medium border border-purple-700/40">Sequence Modeling</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4: Frameworks & Libraries -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cubes text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Frameworks & Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Pandas</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">NumPy</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Scikit-Learn</span>
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-900/40 text-emerald-300 text-xs font-medium border border-emerald-700/40">TensorFlow</span>
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-900/40 text-emerald-300 text-xs font-medium border border-emerald-700/40">PyTorch</span>
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-900/40 text-emerald-300 text-xs font-medium border border-emerald-700/40">FastAPI</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Google Gemini</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Groq API</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Hugging Face</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 5: Languages & Databases -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-database text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Languages & Databases</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-amber-900/40 text-amber-300 text-xs font-medium border border-amber-700/40 font-mono">Python</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60 font-mono">Java</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60 font-mono">JavaScript</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60 font-mono">SQL</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">PostgreSQL</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">MongoDB</span>
+                        <span class="px-2.5 py-1 rounded-md bg-amber-900/40 text-amber-300 text-xs font-medium border border-amber-700/40">ChromaDB</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 6: Tools & Deployment -->
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-rose-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 group">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cloud-arrow-up text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Tools & Deployment</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-rose-900/40 text-rose-300 text-xs font-medium border border-rose-700/40">Streamlit Cloud</span>
+                        <span class="px-2.5 py-1 rounded-md bg-rose-900/40 text-rose-300 text-xs font-medium border border-rose-700/40">Render</span>
+                        <span class="px-2.5 py-1 rounded-md bg-rose-900/40 text-rose-300 text-xs font-medium border border-rose-700/40">Power BI</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Git & GitHub</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">VS Code</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700/60">Jupyter Notebook</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/50">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-xs font-mono font-semibold tracking-widest text-indigo-400 uppercase">Portfolio Portfolio</h2>
+                <p class="mt-2 text-3xl font-extrabold text-white">Featured AI & Analytics Projects</p>
+                <p class="mt-3 text-slate-400">Deployed applications spanning Multi-Agent Systems, Deep Learning, NLP, and Data Analytics.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Project 1: Multi-Agent AI Deep Research System -->
+                <div class="group rounded-3xl bg-slate-900/70 border border-slate-800 p-7 hover:border-indigo-500/60 transition-all duration-300 flex flex-col justify-between hover:shadow-2xl hover:shadow-indigo-500/10">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-indigo-950 text-indigo-400 border border-indigo-800/60 text-xs font-mono">
+                                <i class="fa-solid fa-diagram-project mr-1"></i> Generative AI & Multi-Agent
+                            </span>
+                            <span class="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Deployed
+                            </span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+                            Multi-Agent AI Deep Research System
+                        </h3>
+
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Built an autonomous multi-agent AI research workflow using LangChain with specialized Search, Reader, Writer, and Critic agents to conduct automated in-depth online research.
+                        </p>
+
+                        <ul class="space-y-2 text-xs text-slate-400 list-disc list-inside">
+                            <li>Integrated Tavily Web Search and BeautifulSoup for real-time web data extraction.</li>
+                            <li>Engineered specialized agent roles for objective critique and structured report generation.</li>
+                            <li>Deployed an interactive user portal using Streamlit Cloud.</li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">LangChain</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Groq API</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Tavily</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Streamlit</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <a href="https://multi-agentaideepresearchsystem-lqvqwzbn5jjpqdtwkyuk3k.streamlit.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs shadow-lg shadow-indigo-600/30 transition-all">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Application
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Sentiment Analysis using BiGRU -->
+                <div class="group rounded-3xl bg-slate-900/70 border border-slate-800 p-7 hover:border-cyan-500/60 transition-all duration-300 flex flex-col justify-between hover:shadow-2xl hover:shadow-cyan-500/10">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60 text-xs font-mono">
+                                <i class="fa-solid fa-brain mr-1"></i> NLP & Deep Learning
+                            </span>
+                            <span class="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Deployed
+                            </span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                            Sentiment Analysis using BiGRU
+                        </h3>
+
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Developed an NLP classification pipeline leveraging Bidirectional Gated Recurrent Units (BiGRU) to capture contextual semantics in text for real-time sentiment prediction.
+                        </p>
+
+                        <ul class="space-y-2 text-xs text-slate-400 list-disc list-inside">
+                            <li>Trained a deep BiGRU model using TensorFlow/Keras with custom text preprocessing & tokenization.</li>
+                            <li>Architected a high-performance REST API with FastAPI to serve real-time predictions.</li>
+                            <li>Containerized and deployed microservice on Render for interactive web use.</li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">NLP</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">BiGRU</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">TensorFlow</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">FastAPI</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <a href="https://mood-analysis-1d6c.onrender.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-xs shadow-lg shadow-cyan-600/30 transition-all">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App (Render)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Next Word Prediction using LSTM -->
+                <div class="group rounded-3xl bg-slate-900/70 border border-slate-800 p-7 hover:border-purple-500/60 transition-all duration-300 flex flex-col justify-between hover:shadow-2xl hover:shadow-purple-500/10">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-purple-950 text-purple-400 border border-purple-800/60 text-xs font-mono">
+                                <i class="fa-solid fa-font mr-1"></i> Sequence Modeling
+                            </span>
+                            <span class="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Deployed
+                            </span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                            Next Word Prediction using LSTM
+                        </h3>
+
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Built a language modeling sequence predictor using Long Short-Term Memory (LSTM) recurrent networks to perform real-time next-word autocomplete suggestions.
+                        </p>
+
+                        <ul class="space-y-2 text-xs text-slate-400 list-disc list-inside">
+                            <li>Implemented word tokenization, sequence generation, padding, and categorical encoding.</li>
+                            <li>Serialized trained Keras model and tokenizer artifacts for fast inference.</li>
+                            <li>Built an interactive Streamlit UI web app and deployed on Vercel platform.</li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">TensorFlow</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">LSTM</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Keras</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Streamlit</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <a href="https://text-utils-eight-snowy.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs shadow-lg shadow-purple-600/30 transition-all">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live App (Vercel)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: E-Commerce Sales & Analytics Dashboard -->
+                <div class="group rounded-3xl bg-slate-900/70 border border-slate-800 p-7 hover:border-amber-500/60 transition-all duration-300 flex flex-col justify-between hover:shadow-2xl hover:shadow-amber-500/10">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-amber-950 text-amber-400 border border-amber-800/60 text-xs font-mono">
+                                <i class="fa-solid fa-chart-line mr-1"></i> Data Analytics & Power BI
+                            </span>
+                            <span class="flex items-center gap-1.5 text-xs text-amber-400 font-mono">
+                                <i class="fa-brands fa-github"></i> Open Source
+                            </span>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                            E-Commerce Analytics Dashboard
+                        </h3>
+
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Designed and deployed an interactive Power BI dashboard tracking e-commerce sales, delivery fulfillment metrics, regional trends, and customer review sentiment.
+                        </p>
+
+                        <ul class="space-y-2 text-xs text-slate-400 list-disc list-inside">
+                            <li>Utilized PostgreSQL for relational data extraction, cleaning, and model transformation.</li>
+                            <li>Formulated custom DAX measures for executive KPIs (order volume, late delivery rates, review scores).</li>
+                            <li>Created dynamic visualizations featuring drill-downs by date range and customer cohort.</li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Power BI</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">PostgreSQL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">DAX</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-mono">Data Analytics</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <a href="https://github.com/MuskanPatel0027/ECommerce-PowerBI-Dashboard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs border border-slate-700 transition-all">
+                            <i class="fa-brands fa-github"></i> View GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education & Soft Skills Grid Section -->
+        <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/50">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Education Timeline Column -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <h2 class="text-xs font-mono font-semibold tracking-widest text-indigo-400 uppercase">Background</h2>
+                        <h3 class="text-3xl font-extrabold text-white mt-1">Education Timeline</h3>
+                    </div>
+
+                    <div class="space-y-6 relative pl-6 border-l-2 border-indigo-500/30">
+                        <!-- B.Tech Card -->
+                        <div class="relative group">
+                            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 border-4 border-[#090d16] shadow-md group-hover:scale-125 transition-transform"></span>
+                            <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 group-hover:border-indigo-500/40 transition-all">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-mono text-indigo-400 font-semibold">2023 – 2027</span>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-300 text-xs border border-indigo-800">Undergraduate</span>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mt-2">B.Tech in Information Technology</h4>
+                                <p class="text-slate-300 text-sm mt-1">Oriental Institute of Science and Technology</p>
+                                <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-location-dot"></i> Bhopal, Madhya Pradesh</p>
+                            </div>
+                        </div>
+
+                        <!-- 12th Senior Secondary Card -->
+                        <div class="relative group">
+                            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#090d16] group-hover:bg-cyan-400 transition-colors"></span>
+                            <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 group-hover:border-cyan-500/40 transition-all">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-mono text-slate-400 font-semibold">Senior Secondary (12th)</span>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 text-xs border border-slate-700">High School</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mt-2">12th Grade Completion</h4>
+                                <p class="text-slate-300 text-sm mt-1">Vatsalya Convent Higher Secondary School</p>
+                                <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-location-dot"></i> Bareli, Madhya Pradesh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills Column -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <h2 class="text-xs font-mono font-semibold tracking-widest text-indigo-400 uppercase">Interpersonal Capabilities</h2>
+                        <h3 class="text-3xl font-extrabold text-white mt-1">Soft Skills</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4 hover:bg-slate-800/60 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+                                <i class="fa-solid fa-puzzle-piece"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Problem Solving</h4>
+                                <p class="text-xs text-slate-400">Deconstructing complex algorithmic and neural challenges.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4 hover:bg-slate-800/60 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Analytical Thinking</h4>
+                                <p class="text-xs text-slate-400">Data-driven modeling, evaluation, and hyperparameter optimization.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4 hover:bg-slate-800/60 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Technical Communication</h4>
+                                <p class="text-xs text-slate-400">Articulating AI architectures and project workflows clearly.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4 hover:bg-slate-800/60 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                <i class="fa-solid fa-arrows-rotate"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-semibold text-white">Adaptability & Teamwork</h4>
+                                <p class="text-xs text-slate-400">Rapidly mastering emerging frameworks (LangChain, Groq, Agentic AI).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact & Interactive Form Section -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/50 mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-mono font-semibold tracking-widest text-indigo-400 uppercase">Get In Touch</span>
+                    <h2 class="text-4xl font-extrabold text-white leading-tight">Let's Collaborate on AI & Machine Learning</h2>
+                    <p class="text-slate-400 text-base leading-relaxed">
+                        I am actively open to internship opportunities, research collaborations, and full-stack AI project engagements. Feel free to reach out via email or connect on social platforms!
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">EMAIL ADDRESS</div>
+                                <a href="mailto:muskanpatelmp07@gmail.com" class="text-white font-semibold hover:text-indigo-400 transition-colors">muskanpatelmp07@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">PHONE NUMBER</div>
+                                <a href="tel:+917974344484" class="text-white font-semibold hover:text-cyan-400 transition-colors">+91 7974344484</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-mono">LOCATION</div>
+                                <div class="text-white font-semibold">Bhopal, Madhya Pradesh, India</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 backdrop-blur-xl space-y-6 shadow-2xl">
+                        <h3 class="text-2xl font-bold text-white mb-2">Send a Message</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="user-name" class="block text-xs font-mono text-slate-300">YOUR NAME</label>
+                                <input type="text" id="user-name" required placeholder="Muskan Patel" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="user-email" class="block text-xs font-mono text-slate-300">YOUR EMAIL</label>
+                                <input type="email" id="user-email" required placeholder="your.email@domain.com" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="subject" class="block text-xs font-mono text-slate-300">SUBJECT</label>
+                            <input type="text" id="subject" required placeholder="Project Collaboration / AI Opportunity" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="message" class="block text-xs font-mono text-slate-300">MESSAGE</label>
+                            <textarea id="message" rows="4" required placeholder="Hello Muskan, I was impressed by your Multi-Agent AI research system..." class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 text-white font-semibold text-base shadow-xl shadow-indigo-600/30 hover:shadow-indigo-500/50 hover:scale-[1.01] transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-[#060911] py-8 text-center text-slate-500 text-sm font-mono">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © <span id="year"></span> <span class="text-slate-300">Muskan Patel</span>. Built with Precision & AI Innovation.
+            </div>
+            <div class="flex items-center gap-6 text-slate-400">
+                <a href="https://github.com/MuskanPatel0027" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://leetcode.com/u/Muskan_Patel_0027/" target="_blank" class="hover:text-amber-400 transition-colors">LeetCode</a>
+                <a href="mailto:muskanpatelmp07@gmail.com" class="hover:text-indigo-400 transition-colors">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 px-5 py-3 rounded-xl bg-indigo-600 text-white shadow-2xl flex items-center gap-3 text-sm font-medium">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toast-message">Notification message</span>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
